@@ -5,18 +5,31 @@ public class Truck extends Vehicle {
     public Truck() {
         brakeDown();
         this.setTruckName();
-        this.setNormalSpeed(isBrokeDown);
+        this.setNormalSpeed();
         this.distanceTraveled = 0;
     }
+
 
     public void setTruckName(){
         int truckName = new Util().getRandomTruckNumber();
         name = Integer.toString(truckName);
     }
 
+    private void setNormalSpeed() {
+        this.normalSpeed = 100;
+    }
+
     @Override
-    public void setNormalSpeed(boolean isBrokeDown) {
-        super.setNormalSpeed(isBrokeDown);
+    public void moveForAnHour() {
+        if(this.isBrokeDown){
+            System.out.println(this.name + " is broken down, not moving for " + breakdownTurnsLeft + "turns");
+            breakdownTurnsLeft -= 1;
+            if(this.getBreakdownTurnsLeft() == 0){
+                this.isBrokeDown = false;
+            }
+        } else {
+            super.moveForAnHour();
+        }
     }
 
     @Override
@@ -28,5 +41,4 @@ public class Truck extends Vehicle {
     public void setBreakdownTurnsLeft(int turn) {
         breakdownTurnsLeft += turn;
     }
-
 }

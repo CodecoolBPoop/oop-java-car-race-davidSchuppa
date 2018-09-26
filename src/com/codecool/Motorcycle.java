@@ -16,7 +16,4 @@ public class Motorcycle extends Vehicle {
         return 100;
     }
 
-    public void moveForAnHour(){
-        distanceTraveled += normalSpeed;
-    }
 }

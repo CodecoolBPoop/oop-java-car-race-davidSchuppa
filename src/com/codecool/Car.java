@@ -26,8 +26,12 @@ public class Car extends Vehicle {
         normalSpeed = 80 + randomSpeed;
     }
 
-    public void moveForAnHour(){
-        distanceTraveled += normalSpeed;
+    public void moveForAnHour(Boolean isThereABrokenTruck) {
+        if(isThereABrokenTruck){
+            distanceTraveled += 75;
+            System.out.println("car speed now 75");
+        } else {
+            distanceTraveled += normalSpeed;
+        }
     }
-
 }

@@ -1,50 +1,57 @@
 package com.codecool;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Race {
 
-    private boolean isThereABrokenTruck = false;
-    private static List<Vehicle> vehicles = new ArrayList();
-    private static List<Truck> trucks = new ArrayList();
-    private static Car[] cars = new Car[10];
+    private Race race;
+    public boolean isThereABrokenTruck = false;
+    private static Motorcycle[] motorcycles = new Motorcycle[3];
+    private static Truck[] trucks = new Truck[3];
+    private static Car[] cars = new Car[3];
+
+    public void isThereABrokenTruck(Truck[] trucks) {
+        for(Truck truck: trucks) {
+            if (truck.isBrokeDown) {
+                isThereABrokenTruck = true;
+                break;
+            }
+        }
+    }
 
     public boolean isThereABrokenTruck() {
         return isThereABrokenTruck;
     }
 
-    /**initializes the vehicles needed for the race*/
-    private static void createVehicles(){
-        for(int i=0; i < 3; i++){
-            vehicles.add(new Car());
-            vehicles.add(new Motorcycle());
-            vehicles.add(new Truck());
-        }
+    public Race() {
+        createVehicles();
+        simulateRace();
     }
 
-
-    public Race(List<Vehicle> vehicles){
-        createVehicles();
-        for(int i = 0; i < 3; i++){
-            for(Vehicle vehicle: vehicles){
-                if(vehicle.isBrokeDown){
-                    isThereABrokenTruck = true;
-                    vehicle.setNormalSpeed(vehicle.isBrokeDown());
-                    break;
-                }
-            }
-            for(Vehicle vehicle: vehicles){
-                vehicle.moveForAnHour(isThereABrokenTruck());
-                System.out.println(vehicle.name + " traveled " + vehicle.distanceTraveled + " km-s");
+    private void simulateRace() {
+        for(int i = 0; i < 4; i++) {
+            isThereABrokenTruck(trucks);
+            for (int j = 0; j <= cars.length - 1; j++) {
+                System.out.println("Race, is there a broken truck: " + isThereABrokenTruck);
+                cars[j].moveForAnHour(isThereABrokenTruck);
+                motorcycles[j].moveForAnHour();
+                trucks[j].isNotBrokeDown();
+                trucks[j].moveForAnHour();
             }
             System.out.println("********************");
             isThereABrokenTruck = false;
         }
     }
 
+
+    private void createVehicles() {
+        for(int i=0; i < 3; i++){
+            cars[i] = new Car();
+            motorcycles[i] = new Motorcycle();
+            trucks[i] = new Truck();
+        }
+    }
+
     public static void main(String[] args) {
 	// write your code here
-        Race race = new Race(vehicles);
+        new Race();
     }
 }

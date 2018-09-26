@@ -17,11 +17,16 @@ public class Vehicle {
         breakdownTurnsLeft += turn;
     }
 
-    public void setDistanceTraveled(int speed) {
-        this.distanceTraveled += speed;
+    public void setDistanceTraveled() {
+        this.distanceTraveled += normalSpeed;
     }
 
-    /** checks if the instance is broken down*/
+    public void moveForAnHour(){
+        System.out.println(this.name + " moving " + this.normalSpeed + " km/h");
+        this.setDistanceTraveled();
+    }
+
+    /** brakes down vehicle if it's unlucky*/
     public void brakeDown(){
         int chance = new Util().getChancePercent();
         if (chance <= 5){
@@ -30,33 +35,11 @@ public class Vehicle {
         }
     }
 
-
-    public boolean isBrokeDown() {
-        System.out.println(this.getBreakdownTurnsLeft());
-        System.out.println(this.getBreakdownTurnsLeft() >= 1);
-        isBrokeDown = this.getBreakdownTurnsLeft() >= 1;
-        return isBrokeDown;
+    public void isNotBrokeDown() {
+        if(this.getBreakdownTurnsLeft() > 0)
+            this.brakeDown();
     }
 
-    public void setNormalSpeed(boolean isBrokeDown) {
-        if(this.isBrokeDown) {
-            System.out.println("!!!!!!!!Truck " + name + " is broken down!!!!!!!!!");
-            this.normalSpeed = 0;
-        }
-        this.normalSpeed = 100;
-    }
-
-    public void moveForAnHour(boolean isThereABrokenTruck){
-        if (this.isBrokeDown()){
-            this.setDistanceTraveled(this.normalSpeed);
-        }
-        else if(isThereABrokenTruck && this.getClass() == Car.class){
-            System.out.println("Reduced speed for: " + name);
-            this.setNormalSpeed(this.isBrokeDown);
-        } else {
-            this.distanceTraveled += this.normalSpeed;
-        }
-    }
 
 }
 
