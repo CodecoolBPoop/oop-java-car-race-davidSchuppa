@@ -25,4 +25,8 @@ public class Util {
     public int getChancePercent(){
         return random.nextInt(101);
     }
+
+    public int getMotorSlowDown(){
+        return random.nextInt(46);
+    }
 }

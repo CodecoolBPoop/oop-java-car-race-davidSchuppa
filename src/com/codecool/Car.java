@@ -31,7 +31,8 @@ public class Car extends Vehicle {
             distanceTraveled += 75;
             System.out.println("car speed now 75");
         } else {
-            distanceTraveled += normalSpeed;
+            super.moveForAnHour();
+//            distanceTraveled += normalSpeed;
         }
     }
 }

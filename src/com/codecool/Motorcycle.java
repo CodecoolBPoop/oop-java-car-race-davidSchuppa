@@ -16,4 +16,14 @@ public class Motorcycle extends Vehicle {
         return 100;
     }
 
+    public void moveForAnHour(Boolean isRaining) {
+        int slowdown = new Util().getMotorSlowDown();
+        if(isRaining){
+            distanceTraveled += (normalSpeed - slowdown);
+            System.out.println(this.name + " moving " + (normalSpeed - slowdown) + " km/h");
+        } else {
+            super.moveForAnHour();
+            //            distanceTraveled += normalSpeed;
+        }
+    }
 }
