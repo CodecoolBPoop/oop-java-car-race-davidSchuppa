@@ -1,19 +1,17 @@
 package com.codecool;
 
 public class Truck extends Vehicle {
-//    public boolean isBrokeDown = false;
-//    public int breakdownTurnsLeft;
 
     public Truck() {
         brakeDown();
-        this.name = setTruckName();
+        this.setTruckName();
         this.setNormalSpeed(isBrokeDown);
         this.distanceTraveled = 0;
     }
 
-    public String setTruckName(){
+    public void setTruckName(){
         int truckName = new Util().getRandomTruckNumber();
-        return Integer.toString(truckName);
+        name = Integer.toString(truckName);
     }
 
     @Override

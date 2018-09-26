@@ -7,21 +7,23 @@ public class Car extends Vehicle {
             "Ferocity", "Bliss","Scout", "Crux", "Daydream", "Virtue", "Purity", "Viper", "Viper", "Prodigy", "Venom", "Killer"};
 
     public Car() {
-        name = setCarName();
-        normalSpeed = setNormalSpeed();
+        this.setCarName();
+        this.setNormalSpeed();
         distanceTraveled = 0;
 //        System.out.println("A car has been created named: " + name);
 //        System.out.println("It has a speed of: " + normalSpeed);
     }
 
-    public String setCarName(){
+    public void setCarName(){
         int[] nameIndexes = new Util().getRandomIndexes(carNames.length);
-        return carNames[nameIndexes[0]] + " " + carNames[nameIndexes[1]];
+        name = carNames[nameIndexes[0]] + " " + carNames[nameIndexes[1]];
     }
 
-    public int setNormalSpeed(){
+
+    public void setNormalSpeed(){
+//        if()
         int randomSpeed = new Util().getCarRandomSpeed();
-        return 80 + randomSpeed;
+        normalSpeed = 80 + randomSpeed;
     }
 
     public void moveForAnHour(){
