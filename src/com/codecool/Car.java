@@ -10,8 +10,8 @@ public class Car extends Vehicle {
         name = setCarName();
         normalSpeed = setNormalSpeed();
         distanceTraveled = 0;
-        System.out.println("A car has been created named: " + name);
-        System.out.println("It has a speed of: " + normalSpeed);
+//        System.out.println("A car has been created named: " + name);
+//        System.out.println("It has a speed of: " + normalSpeed);
     }
 
     public String setCarName(){

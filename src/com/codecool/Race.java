@@ -40,9 +40,17 @@ public class Race {
         createVehicles();
         for(int i = 0; i < 3; i++){
             for(Vehicle vehicle: vehicles){
-                vehicle.moveForAnHour();
+                if(vehicle.isBrokeDown()){
+                    isThereABrokenTruck = true;
+                    break;
+                }
+            }
+            for(Vehicle vehicle: vehicles){
+                vehicle.moveForAnHour(isThereABrokenTruck);
                 System.out.println(vehicle.name + " traveled " + vehicle.distanceTraveled + " km-s");
             }
+            System.out.println("********************");
+            isThereABrokenTruck = false;
         }
     }
 

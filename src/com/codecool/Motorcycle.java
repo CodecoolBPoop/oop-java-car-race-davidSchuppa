@@ -8,8 +8,8 @@ public class Motorcycle extends Vehicle {
         name = "Motorcycle " + instanceCounter;
         normalSpeed = setNormalSpeed();
         distanceTraveled = 0;
-        System.out.println("Motorcycle's name: " + name);
-        System.out.println("It's normal speed: " + normalSpeed);
+//        System.out.println("Motorcycle's name: " + name);
+//        System.out.println("It's normal speed: " + normalSpeed);
     }
 
     public int setNormalSpeed(){
