@@ -6,7 +6,7 @@ public class Util {
 
     Random random = new Random();
 
-    public int getRandomSpeed(){
+    public int getCarRandomSpeed(){
         int speed = random.nextInt(31);
         return speed;
     }
@@ -16,5 +16,9 @@ public class Util {
         randomIndexes[0] = random.nextInt(bound);
         randomIndexes[1] = random.nextInt(bound);
         return randomIndexes;
+    }
+
+    public int getRandomTruckNumber(){
+        return random.nextInt(1001);
     }
 }

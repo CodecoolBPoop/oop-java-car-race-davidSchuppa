@@ -7,4 +7,8 @@ public class Vehicle {
 
     public Vehicle() {
     }
+
+    public void moveForAnHour(){
+        distanceTraveled += normalSpeed;
+    }
 }

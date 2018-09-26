@@ -12,19 +12,20 @@ public class Car extends Vehicle {
         distanceTraveled = 0;
         System.out.println("A car has been created named: " + name);
         System.out.println("It has a speed of: " + normalSpeed);
-        System.out.println("Distance so far: " + distanceTraveled);
-
     }
 
     public String setCarName(){
         int[] nameIndexes = new Util().getRandomIndexes(carNames.length);
-        return carNames[0] + " " + carNames[1];
+        return carNames[nameIndexes[0]] + " " + carNames[nameIndexes[1]];
     }
 
     public int setNormalSpeed(){
-        int randomSpeed = new Util().getRandomSpeed();
+        int randomSpeed = new Util().getCarRandomSpeed();
         return 80 + randomSpeed;
     }
 
+    public void moveForAnHour(){
+        distanceTraveled += normalSpeed;
+    }
 
 }
