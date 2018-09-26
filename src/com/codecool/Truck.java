@@ -1,10 +1,11 @@
 package com.codecool;
 
 public class Truck extends Vehicle {
-    private boolean isBrokeDown = false;
-    private int breakdownTurnsLeft = 0;
+//    public boolean isBrokeDown = false;
+//    private int breakdownTurnsLeft = 0;
 
     public Truck() {
+        isBrokenDown();
         name = setTruckName();
         normalSpeed = setNormalSpeed(isBrokeDown);
         distanceTraveled = 0;
@@ -22,4 +23,12 @@ public class Truck extends Vehicle {
         }
         return 100;
     }
+
+
+
+    public void handleMovement(){
+        System.out.println("Im handling movement");
+    }
+
+
 }

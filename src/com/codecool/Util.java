@@ -21,4 +21,8 @@ public class Util {
     public int getRandomTruckNumber(){
         return random.nextInt(1001);
     }
+
+    public int getChancePercent(){
+        return random.nextInt(101);
+    }
 }
