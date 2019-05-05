@@ -3,12 +3,12 @@ package com.codecool;
 public class Race {
 
     private Race race;
-    private int numberOfInstances = 3;
-    private int numberOfLaps = 4;
+    private static int numberOfInstances = 10;
+    private static int numberOfLaps = 50;
     public boolean isThereABrokenTruck = false;
-    private static Motorcycle[] motorcycles = new Motorcycle[3];
-    private static Truck[] trucks = new Truck[3];
-    private static Car[] cars = new Car[3];
+    private static Motorcycle[] motorcycles = new Motorcycle[numberOfInstances];
+    private static Truck[] trucks = new Truck[numberOfInstances];
+    private static Car[] cars = new Car[numberOfInstances];
 
     public Race() {
         createVehicles();
@@ -43,10 +43,10 @@ public class Race {
             isThereABrokenTruck(trucks);
             for (int j = 0; j < numberOfInstances; j++) {
                 System.out.println("Race, is there a broken truck: " + isThereABrokenTruck);
-                cars[j].moveForAnHour(isThereABrokenTruck);
-                motorcycles[j].moveForAnHour(Weather.isRaining);
                 trucks[j].isNotBrokeDown();
                 trucks[j].moveForAnHour();
+                cars[j].moveForAnHour(isThereABrokenTruck);
+                motorcycles[j].moveForAnHour(Weather.isRaining);
             }
             System.out.println("..........................");
             isThereABrokenTruck = false;

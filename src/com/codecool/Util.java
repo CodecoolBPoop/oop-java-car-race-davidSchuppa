@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Util {
 
-    Random random = new Random();
+    private static final Random random = new Random();
 
     public int getCarRandomSpeed(){
         int speed = random.nextInt(31);

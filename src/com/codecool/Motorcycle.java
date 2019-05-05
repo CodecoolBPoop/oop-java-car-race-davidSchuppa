@@ -17,8 +17,8 @@ public class Motorcycle extends Vehicle {
     }
 
     public void moveForAnHour(Boolean isRaining) {
-        int slowdown = new Util().getMotorSlowDown();
         if(isRaining){
+            int slowdown = new Util().getMotorSlowDown();
             distanceTraveled += (normalSpeed - slowdown);
             System.out.println(this.name + " moving " + (normalSpeed - slowdown) + " km/h");
         } else {

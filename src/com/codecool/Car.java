@@ -3,6 +3,7 @@ package com.codecool;
 
 public class Car extends Vehicle {
 
+    public static final int MINIMAL_SPEED = 80;
     public String[] carNames = {"Eminence", "Astral", "Falcon", "Bullet", "Resolve", "Expedition", "Zeal", "Capital",
             "Ferocity", "Bliss","Scout", "Crux", "Daydream", "Virtue", "Purity", "Viper", "Viper", "Prodigy", "Venom", "Killer"};
 
@@ -23,7 +24,7 @@ public class Car extends Vehicle {
     public void setNormalSpeed(){
 //        if()
         int randomSpeed = new Util().getCarRandomSpeed();
-        normalSpeed = 80 + randomSpeed;
+        normalSpeed = MINIMAL_SPEED + randomSpeed;
     }
 
     public void moveForAnHour(Boolean isThereABrokenTruck) {

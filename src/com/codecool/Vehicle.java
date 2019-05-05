@@ -36,7 +36,7 @@ public class Vehicle {
     }
 
     public void isNotBrokeDown() {
-        if(this.getBreakdownTurnsLeft() > 0)
+        if(!this.isBrokeDown)
             this.brakeDown();
     }
 
